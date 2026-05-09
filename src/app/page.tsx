@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect } from 'react';
-import { useLocation } from '@/hooks/useLocation.ts';
-import { SOSButton } from '@/components/SOSButton.tsx';
 
+import { useLocation } from '@/hooks/useLocation';
+import { SOSButton } from '@/components/SOSButton';
 export default function Home() {
   const { location } = useLocation();
   const [weather, setWeather] = useState<any>(null);
