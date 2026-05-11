@@ -107,3 +107,29 @@ body::after {
 .animate-fade-up-delay-3 { animation: fadeSlideUp 0.5s 0.3s ease both; }
 .animate-fade-up-delay-4 { animation: fadeSlideUp 0.5s 0.4s ease both; }
 .animate-fade-up-delay-5 { animation: fadeSlideUp 0.5s 0.5s ease both; }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+  
+  /* Emergency Theme Colors */
+  --color-brand-primary: #3182ce; /* Blue for Weather */
+  --color-status-danger: #e53e3e; /* Red for Alert/SOS */
+  --color-status-safe: #38a169;   /* Green for Safe Wind */
+  --color-status-warning: #ed8936; /* Orange for Heat/Offline */
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  font-family: sans-serif;
+}
