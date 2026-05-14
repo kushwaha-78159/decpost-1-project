@@ -4,7 +4,7 @@ import Groq from "groq-sdk";
 
 // AI Configuration
 const groq = new Groq({ 
-  apiKey: "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",
+  apiKey: process.env.NEXT_PUBLIC_GROQ_API_KEY, // Key yahan se hat gayi
   dangerouslyAllowBrowser: true 
 });
 
