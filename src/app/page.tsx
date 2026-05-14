@@ -122,25 +122,25 @@ export default function Home() {
           </p>
         </div>
 
-        {/* 📅 HOURLY FORECAST (Next 24h) */}
-        <div style={{ background: 'rgba(0,0,0,0.5)', padding: '20px', borderRadius: '20px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '15px' }}>
-            <h4 style={{ margin: 0, fontSize: '0.9rem' }}>24H TIMELINE</h4>
-            <span style={{ color: '#60a5fa', fontWeight: 'bold' }}>{weather?.main?.temp ? Math.round(weather.main.temp) : '--'}°C Now</span>
+        {/* 🌡️ WEATHER SECTION */}
+        <div style={{ background: 'rgba(0,0,0,0.5)', padding: '20px', borderRadius: '25px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div style={{ flex: 1 }}>
+            <p style={{ color: '#60a5fa', fontSize: '0.7rem', marginBottom: '10px' }}>24H TIMELINE</p>
+            <div style={{ display: 'flex', gap: '10px', overflowX: 'auto' }}>
+              {forecast.map((item, i) => (
+                <div key={i} style={{ minWidth: '55px', textAlign: 'center', background: 'rgba(255,255,255,0.05)', padding: '8px', borderRadius: '10px' }}>
+                  <p style={{ fontSize: '0.6rem', color: '#94a3b8', margin: 0 }}>{new Date(item.dt * 1000).getHours()}:00</p>
+                  <p style={{ fontSize: '0.8rem', fontWeight: 'bold' }}>{Math.round(item.main.temp)}°</p>
+                </div>
+              ))}
+            </div>
           </div>
-          <div style={{ display: 'flex', gap: '15px', overflowX: 'auto', paddingBottom: '10px' }}>
-            {forecast.map((item, i) => (
-              <div key={i} style={{ minWidth: '70px', textAlign: 'center', background: 'rgba(255,255,255,0.05)', padding: '10px', borderRadius: '12px' }}>
-                <p style={{ fontSize: '0.65rem', color: '#94a3b8', margin: 0 }}>{new Date(item.dt * 1000).getHours()}:00</p>
-                <p style={{ fontWeight: 'bold', margin: '5px 0' }}>{Math.round(item.main.temp)}°</p>
-              </div>
-            ))}
+          <div style={{ textAlign: 'right', marginLeft: '20px' }}>
+            <h1 style={{ fontSize: '3.5rem', fontWeight: '900', margin: 0 }}>
+              {weather?.main?.temp ? Math.round(weather.main.temp) : '--'}°
+            </h1>
           </div>
         </div>
-
-        <p style={{ textAlign: 'center', color: '#334155', fontSize: '0.7rem', marginTop: '30px' }}>
-          TRACKING: {location?.address || "Detecting GPS..."}
-        </p>
       </div>
     </div>
   );
